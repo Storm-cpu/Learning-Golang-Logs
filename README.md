@@ -1,7 +1,7 @@
 # Learning-Golang-Logs
 ## 10/05/2024
 ### KHAI BÁO BIẾN TRONG GOLANG
-ˋˋˋ var a = 10`
+ˋˋˋ var a = 10 ˋˋˋ
 ˋˋˋ var a int
 ˋˋˋ var a int = 10
 ˋˋˋ var a,b = 10,"Hello"
