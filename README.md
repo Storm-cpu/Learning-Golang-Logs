@@ -1,6 +1,6 @@
 # LEARNING-GOLANG-LOGS
 ## 10/05/2024
-### Khai báo biến
+### Variable and declaration
 ```
 var a = 10
 var a int
@@ -9,7 +9,7 @@ a := 10
 ...
 ```
 ## 11/05/2024
-### Kiểu dữ liệu
+### Data type
 ```
 //Kiểu số nguyên:
 var a int = 10
@@ -30,16 +30,6 @@ var h bool = false
 //Kiểu chuỗi: (Nhớ để trong dấu nháy kép "")
 var i string = "hello"
 
-//Kiểu mảng:
-var j [5]int = [5]int{1, 2, 3, 4, 5}
-
-//Kiểu struct:
-type Person struct {
-    Name string
-    Age  int
-}
-p := Person{Name: "Alice", Age: 20}
-
 //Kiểu byte:
 var a byte = 'A'
 fmt.Println(a)  //In ra giá trị ASCII của 'A' (65)
@@ -48,4 +38,21 @@ fmt.Println(a)  //In ra giá trị ASCII của 'A' (65)
 var a rune = 'あ'
 fmt.Printf("%c\n", a) //'あ'
 fmt.Println(a) // In ra giá trị Unicode của'あ' (12354)
+```
+### Functions, multiple/named returns
+```
+func swap(x, y int) (int, int) {
+    return y, x
+}
+a, b := swap(1, 2)
+fmt.Println(a, b) // In ra "2 1"
+```
+### Arrays, Slices, Maps
+```
+arr := [3]int{1, 2, 3}
+sli := []int{1, 2, 3}
+m := map[string]int{
+    "one": 1,
+    "two": 2,
+}
 ```
