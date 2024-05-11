@@ -56,3 +56,21 @@ m := map[string]int{
     "two": 2,
 }
 ```
+### Structs
+```
+type Person struct {
+    Name string
+    Age  int
+}
+
+// Khởi tạo một đối tượng Person
+p := Person{Name: "Alice", Age: 20}
+
+// Truy cập vào các trường của struct
+fmt.Println(p.Name) // In ra "Alice"
+fmt.Println(p.Age)  // In ra "20"
+
+// Thay đổi giá trị của trường trong struct
+p.Age = 21
+fmt.Println(p.Age)  // In ra "21"
+```
