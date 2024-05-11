@@ -27,18 +27,11 @@ var f complex128 = 3 + 4i
 var g bool = true
 var h bool = false
 
-//Kiểu chuỗi:
+//Kiểu chuỗi: (Nhớ để trong dấu nháy kép "")
 var i string = "hello"
 
 //Kiểu mảng:
 var j [5]int = [5]int{1, 2, 3, 4, 5}
-
-//Kiểu slice:
-k := []int{1, 2, 3, 4, 5}
-
-//Con trỏ:
-m := 10
-var n *int = &m
 
 //Kiểu struct:
 type Person struct {
@@ -46,4 +39,13 @@ type Person struct {
     Age  int
 }
 p := Person{Name: "Alice", Age: 20}
+
+//Kiểu byte:
+var a byte = 'A'
+fmt.Println(a)  //In ra giá trị ASCII của 'A' (65)
+
+// Kiểu rune: (Thao tác với chuỗi chính xác hơn với hỗ trợ những ký tự Unicode)
+var a rune = 'あ'
+fmt.Printf("%c\n", a) //'あ'
+fmt.Println(a) // In ra giá trị Unicode của'あ' (12354)
 ```
