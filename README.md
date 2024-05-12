@@ -134,3 +134,7 @@ func main() {
 }
 
 ```
+### Starting Todo list project
+- Dùng Gin để tạo http server
+- Tải image mysql lên docker
+- Dùng GROM để kết nối mysql
