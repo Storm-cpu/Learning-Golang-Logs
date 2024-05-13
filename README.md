@@ -216,8 +216,8 @@ Concurrency (Đồng thời):
 Parallelism (Song song):
 - Parallelism liên quan đến việc một ứng dụng chia các tác vụ thành các tác vụ con nhỏ hơn được xử lý cùng một lúc hoặc song song.
 - Nó được sử dụng để tăng throughput và tốc độ tính toán của hệ thống bằng cách sử dụng nhiều bộ xử lý.
-Tác hại: Phức tạp và khó gỡ lỗi
-So sánh:
+* Tác hại: Phức tạp và khó gỡ lỗi
+* So sánh:
 - Concurrency là giải quyết nhiều vấn đề cùng một lúc (không nhất thiết phải là đồng thời), còn Parallelism là giải quyết một vấn đề duy nhất nhanh hơn bằng cách chia nó thành các phần nhỏ hơn và giải quyết chúng đồng thời.
 - Concurrency thường chia nhỏ một tác vụ thành nhiều phần nhỏ hơn và xử lý chúng một cách xen kẻ độc lập. Trong khi đó, Parallelism thường liên quan đến việc chia nhỏ một tác vụ thành nhiều phần nhỏ hơn và xử lý chúng cùng một lúc.
 - Concurrency có thể được thực hiện trên một bộ xử lý duy nhất hoặc nhiều hơn. Trong khi đó, Parallelism yêu cầu nhiều bộ xử lý để thực hiện các tác vụ cùng một lúc.
