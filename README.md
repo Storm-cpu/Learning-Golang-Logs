@@ -226,7 +226,24 @@ So sánh:
 * Concurrency thường chia nhỏ một tác vụ thành nhiều phần nhỏ hơn và xử lý chúng một cách xen kẻ độc lập. Trong khi đó, Parallelism thường liên quan đến việc chia nhỏ một tác vụ thành nhiều phần nhỏ hơn và xử lý chúng cùng một lúc.
 * Concurrency có thể được thực hiện trên một bộ xử lý duy nhất hoặc nhiều hơn. Trong khi đó, Parallelism yêu cầu nhiều bộ xử lý để thực hiện các tác vụ cùng một lúc.
 ### Download go by WSL
-- Vào file .bashrc và bấm 'i' để edit
-
-
+- Dowload go mở terminal và nhập lệnh:
+```
+curl -OL https://golang.org/dl/go1.22.3.linux-amd64.tar.gz
+```
+- Giải nén file
+```
+sudo tar -C /usr/local -xzf go1.22.3.linux-amd64.tar.gz
+```
+- Vào mở file .bashrc và bấm 'i' để edit. Sau đó thêm dòng này ở cuối 
+```
+export PATH=$PATH:/usr/local/go/bin
+```
+- Cập nhật lại file .bashrc
+```
+source .bashrc
+```
+- Kiểm tra phiên bản
+```
+go version
+```
 
