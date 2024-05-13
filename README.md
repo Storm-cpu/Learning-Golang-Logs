@@ -193,6 +193,11 @@ func main() {
 ### Stack and Heap
 - Stack là bộ nhớ lưu các biến cục bộ hoặc là hàm và nó sẽ giải phóng khi hàm đó chạy xong
 - Heap để lưu những biến toàn cục có thời gian tồn tại hoặc là độ dài ko xác định và nó sẽ giải phóng bộ nhớ khi mình giải phóng nó hoặc chương trình kết thúc
+- Việc giải phóng bộ nhớ cho heap được thực hiện tự động thông qua bộ thu gom rác (Garbage Collection)
 ### Continute Todolist Project
 - Tách các thư mục ra để dể quản lý
-- Dùng packet "github.com/joho/godotenv" để load .envW
+- Dùng packet "github.com/joho/godotenv" để load .env
+- Hoàn tất CRUD
+### Pointer
+- Tiết kiệm dữ liệu hơn về việc thao tác trên 1 biến
+- Hạn chế con trỏ: khó dùng và phải handle nil
