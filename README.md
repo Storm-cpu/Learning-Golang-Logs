@@ -169,8 +169,8 @@ func main() {
 }
 ```
 ### Tham chiếu và tham trị
-Tham trị (Pass by Value): Khi truyền một biến vào hàm theo kiểu tham trị, mình sẽ truyền giá trị của biến đó. Nếu giá trị được thay đổi bên trong hàm, nó không ảnh hưởng đến biến ban đầu.
-Tham chiếu (Pass by Reference): Khi truyền một biến vào hàm theo kiểu tham chiếu, mình sẽ truyền địa chỉ của biến đó. Do đó, bất cứ thay đổi nào xảy ra với biến bên trong hàm sẽ ảnh hưởng đến biến ban đầu.
+- Tham trị (Pass by Value): Khi truyền một biến vào hàm theo kiểu tham trị, mình sẽ truyền giá trị của biến đó. Nếu giá trị được thay đổi bên trong hàm, nó không ảnh hưởng đến biến ban đầu.
+- Tham chiếu (Pass by Reference): Khi truyền một biến vào hàm theo kiểu tham chiếu, mình sẽ truyền địa chỉ của biến đó. Do đó, bất cứ thay đổi nào xảy ra với biến bên trong hàm sẽ ảnh hưởng đến biến ban đầu.
 ```
 // Pass By Value
 func Add(x int) {
@@ -211,15 +211,15 @@ func main() {
 - Hạn chế con trỏ: khó dùng và phải handle nil
 ### Concurrency and Parallelism
 1. Concurrency (Đồng thời):
-- Liên quan đến việc một ứng dụng xử lý nhiều tác vụ cùng một lúc.
-- Concurrency được thực hiện thông qua việc xen kẽ các hoạt động của các tiến trình trên CPU (Central Processing Unit) hoặc nói cách khác là thông qua việc chuyển đổi ngữ cảnh.
+	- Liên quan đến việc một ứng dụng xử lý nhiều tác vụ cùng một lúc.
+	- Concurrency được thực hiện thông qua việc xen kẽ các hoạt động của các tiến trình trên CPU (Central Processing Unit) hoặc nói cách khác là thông qua việc chuyển đổi ngữ cảnh.
 2. Parallelism (Song song):
-- Parallelism liên quan đến việc một ứng dụng chia các tác vụ thành các tác vụ con nhỏ hơn được xử lý cùng một lúc hoặc song song.
-- Nó được sử dụng để tăng throughput và tốc độ tính toán của hệ thống bằng cách sử dụng nhiều bộ xử lý. 
+	- Parallelism liên quan đến việc một ứng dụng chia các tác vụ thành các tác vụ con nhỏ hơn được xử lý cùng một lúc hoặc song song.
+	- Nó được sử dụng để tăng throughput và tốc độ tính toán của hệ thống bằng cách sử dụng nhiều bộ xử lý. 
 3. So sánh:
-- Concurrency là giải quyết nhiều vấn đề cùng một lúc (không nhất thiết phải là đồng thời), còn Parallelism là giải quyết một vấn đề duy nhất nhanh hơn bằng cách chia nó thành các phần nhỏ hơn và giải quyết chúng đồng thời.
-- Concurrency thường chia nhỏ một tác vụ thành nhiều phần nhỏ hơn và xử lý chúng một cách xen kẻ độc lập. Trong khi đó, Parallelism thường liên quan đến việc chia nhỏ một tác vụ thành nhiều phần nhỏ hơn và xử lý chúng cùng một lúc.
-- Concurrency có thể được thực hiện trên một bộ xử lý duy nhất hoặc nhiều hơn. Trong khi đó, Parallelism yêu cầu nhiều bộ xử lý để thực hiện các tác vụ cùng một lúc.
+	- Concurrency là giải quyết nhiều vấn đề cùng một lúc (không nhất thiết phải là đồng thời), còn Parallelism là giải quyết một vấn đề duy nhất nhanh hơn bằng cách chia nó thành các phần nhỏ hơn và giải quyết chúng đồng thời.
+	- Concurrency thường chia nhỏ một tác vụ thành nhiều phần nhỏ hơn và xử lý chúng một cách xen kẻ độc lập. Trong khi đó, Parallelism thường liên quan đến việc chia nhỏ một tác vụ thành nhiều phần nhỏ hơn và xử lý chúng cùng một lúc.
+	- Concurrency có thể được thực hiện trên một bộ xử lý duy nhất hoặc nhiều hơn. Trong khi đó, Parallelism yêu cầu nhiều bộ xử lý để thực hiện các tác vụ cùng một lúc.
 
 
 
