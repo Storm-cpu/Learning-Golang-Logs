@@ -11,31 +11,37 @@ a := 10
 
 ## 11/05/2024
 ### Data type
+Kiểu số nguyên:
 ```
-//Kiểu số nguyên:
 var a int = 10
 var b uint = 20
-
-//Kiểu số thực:
+```
+Kiểu số thực:
+```
 var c float32 = 1.2
 var d float64 = 3.4
-
-//Kiểu số phức:
+```
+Kiểu số phức:
+```
 var e complex64 = 1 + 2i
 var f complex128 = 3 + 4i
-
-//Kiểu boolean:
+```
+Kiểu boolean:
+```
 var g bool = true
 var h bool = false
-
-//Kiểu chuỗi: (Nhớ để trong dấu nháy kép "")
+```
+Kiểu chuỗi: (Nhớ để trong dấu nháy kép "")
+```
 var i string = "hello"
-
-//Kiểu byte:
+```
+Kiểu byte:
+```
 var a byte = 'A'
 fmt.Println(a)  //In ra giá trị ASCII của 'A' (65)
-
-// Kiểu rune: Kiểu rune trong Go là một ref kiểu int32. Nó được sử dụng để đại diện cho một ký tự Unicode.(Thao tác với chuỗi chính xác hơn với hỗ trợ những ký tự Unicode)
+```
+Kiểu rune: Kiểu rune trong Go là một ref kiểu int32. Nó được sử dụng để đại diện cho một ký tự Unicode.(Thao tác với chuỗi chính xác hơn với hỗ trợ những ký tự Unicode)
+```
 var a rune = 'あ'
 fmt.Printf("%c\n", a) //'あ'
 fmt.Println(a) // In ra giá trị Unicode của'あ' (12354)
@@ -105,8 +111,8 @@ default:
 }
 ```
 ### Errors, Panic, Recover
+Errors: error được định nghĩa sẵn, mà bất kỳ kiểu nào triển khai phương thức Error() string đều được coi là một kiểu error
 ```
-//Errors: error được định nghĩa sẵn, mà bất kỳ kiểu nào triển khai phương thức Error() string đều được coi là một kiểu error
 func divide(x, y int) (int, error) {
     if y == 0 {
         return 0, errors.New("cannot divide by zero")
@@ -118,13 +124,15 @@ result, err := divide(10, 0)
 if err != nil {
     fmt.Println(err)
 }
-
-//Panic: panic là một hàm tích hợp trong Go, khi được gọi, sẽ dừng thực thi chương trình và in ra một thông điệp lỗi.
+```
+Panic: panic là một hàm tích hợp trong Go, khi được gọi, sẽ dừng thực thi chương trình và in ra một thông điệp lỗi.
+```
 func main() {
     panic("something bad happened")
 }
-
-//Recover: recover cho phép kiểm soát lại sau khi panic. recover chỉ có thể được gọi trong hàm defer. Nếu không có panic nào xảy ra, recover sẽ trả về nil
+```
+Recover: recover cho phép kiểm soát lại sau khi panic. recover chỉ có thể được gọi trong hàm defer. Nếu không có panic nào xảy ra, recover sẽ trả về nil
+```
 func main() {
     defer func() {
         if r := recover(); r != nil {
@@ -141,7 +149,7 @@ func main() {
 
 ## 13/05/2024
 ### Defer
-- Defer được sử dụng để hoãn việc thực thi một hàm cho đến khi hàm chứa nó kết thúc
+Defer được sử dụng để hoãn việc thực thi một hàm cho đến khi hàm chứa nó kết thúc
 ```
 func printCountdown() {
     for i := 5; i > 0; i-- {
@@ -151,7 +159,7 @@ func printCountdown() {
 }
 ```
 ### Silde
-- Slide nó giống như array nhưng có kích thước linh động hơn
+Slide nó giống như array nhưng có kích thước linh động hơn
 ```
 func main() {
 	primes := [6]int{2, 3, 5, 7, 11, 13}
@@ -161,8 +169,8 @@ func main() {
 }
 ```
 ### Tham chiếu và tham trị
-- Tham trị (Pass by Value): Khi truyền một biến vào hàm theo kiểu tham trị, mình sẽ truyền giá trị của biến đó. Nếu giá trị được thay đổi bên trong hàm, nó không ảnh hưởng đến biến ban đầu.
-- Tham chiếu (Pass by Reference): Khi truyền một biến vào hàm theo kiểu tham chiếu, mình sẽ truyền địa chỉ của biến đó. Do đó, bất cứ thay đổi nào xảy ra với biến bên trong hàm sẽ ảnh hưởng đến biến ban đầu.
+Tham trị (Pass by Value): Khi truyền một biến vào hàm theo kiểu tham trị, mình sẽ truyền giá trị của biến đó. Nếu giá trị được thay đổi bên trong hàm, nó không ảnh hưởng đến biến ban đầu.
+Tham chiếu (Pass by Reference): Khi truyền một biến vào hàm theo kiểu tham chiếu, mình sẽ truyền địa chỉ của biến đó. Do đó, bất cứ thay đổi nào xảy ra với biến bên trong hàm sẽ ảnh hưởng đến biến ban đầu.
 ```
 // Pass By Value
 func Add(x int) {
@@ -201,3 +209,16 @@ func main() {
 ### Pointer
 - Tiết kiệm dữ liệu hơn về việc thao tác trên 1 biến
 - Hạn chế con trỏ: khó dùng và phải handle nil
+### Concurrency and Parallelism
+Concurrency (Đồng thời):
+- Liên quan đến việc một ứng dụng xử lý nhiều tác vụ cùng một lúc.
+- Concurrency được thực hiện thông qua việc xen kẽ các hoạt động của các tiến trình trên CPU (Central Processing Unit) hoặc nói cách khác là thông qua việc chuyển đổi ngữ cảnh.
+Parallelism (Song song):
+- Parallelism liên quan đến việc một ứng dụng chia các tác vụ thành các tác vụ con nhỏ hơn được xử lý cùng một lúc hoặc song song.
+- Nó được sử dụng để tăng throughput và tốc độ tính toán của hệ thống bằng cách sử dụng nhiều bộ xử lý.
+Tác hại: Phức tạp và khó gỡ lỗi
+So sánh:
+- Concurrency là giải quyết nhiều vấn đề cùng một lúc (không nhất thiết phải là đồng thời), còn Parallelism là giải quyết một vấn đề duy nhất nhanh hơn bằng cách chia nó thành các phần nhỏ hơn và giải quyết chúng đồng thời.
+- Concurrency thường chia nhỏ một tác vụ thành nhiều phần nhỏ hơn và xử lý chúng một cách xen kẻ độc lập. Trong khi đó, Parallelism thường liên quan đến việc chia nhỏ một tác vụ thành nhiều phần nhỏ hơn và xử lý chúng cùng một lúc.
+- Concurrency có thể được thực hiện trên một bộ xử lý duy nhất hoặc nhiều hơn. Trong khi đó, Parallelism yêu cầu nhiều bộ xử lý để thực hiện các tác vụ cùng một lúc.
+
