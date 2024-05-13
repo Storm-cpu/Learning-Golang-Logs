@@ -124,7 +124,6 @@ func main() {
     panic("something bad happened")
 }
 
-
 //Recover: recover cho phép kiểm soát lại sau khi panic. recover chỉ có thể được gọi trong hàm defer. Nếu không có panic nào xảy ra, recover sẽ trả về nil
 func main() {
     defer func() {
@@ -141,3 +140,81 @@ func main() {
 - Dùng GROM để kết nối mysql
 
 ## 13/05/2024
+### Defer
+```
+//Defer được sử dụng để hoãn việc thực thi một hàm cho đến khi hàm chứa nó kết thúc
+func printCountdown() {
+    for i := 5; i > 0; i-- {
+        defer fmt.Println(i)  // Các lệnh defer sẽ được thực thi theo thứ tự ngược lại (1,2,3,4,5)
+    }
+    fmt.Println("Start!")
+}
+```
+### Silde
+```
+//Slide nó giống như array nhưng có kích thước linh động hơn
+func main() {
+	primes := [6]int{2, 3, 5, 7, 11, 13}
+
+	var s []int = primes[1:4]
+	fmt.Println(s)
+}
+// 
+```
+### Tham chiếu và tham trị
+- Tham trị (Pass by Value): Khi truyền một biến vào hàm theo kiểu tham trị, mình sẽ truyền giá trị của biến đó. Nếu giá trị được thay đổi bên trong hàm, nó không ảnh hưởng đến biến ban đầu.
+- Tham chiếu (Pass by Reference): Khi truyền một biến vào hàm theo kiểu tham chiếu, mình sẽ truyền địa chỉ của biến đó. Do đó, bất cứ thay đổi nào xảy ra với biến bên trong hàm sẽ ảnh hưởng đến biến ban đầu.
+```
+// Pass By Value
+func Add(x int) {
+    fmt.Printf("Before Add, Memory Location: %p, Value: %d\n", &x, x)
+    x++
+    fmt.Printf("After Add, Memory Location: %p, Value: %d\n", &x, x)
+}
+
+// Pass By Reference
+func AddPtr(x *int) {
+    fmt.Printf("Before AddPtr, Memory Location: %p, Value: %d\n", x, *x)
+    *x++
+    fmt.Printf("After AddPtr, Memory Location: %p, Value: %d\n", x, *x)
+}
+
+func main() {
+    a, b := 0, 0
+    fmt.Printf("Memory Location a: %p, b: %p\n", &a, &b)
+    fmt.Printf("Value a: %d, b: %d\n", a, b)
+
+    Add(a)
+    AddPtr(&b)
+
+    fmt.Printf("Memory Location a: %p, b: %p\n", &a, &b)
+    fmt.Printf("Value a: %d, b: %d\n", a, b)
+}
+```
+### Stack and Heap
+- Stack là bộ nhớ lưu các biến cục bộ hoặc là hàm và nó sẽ giải phóng khi hàm đó chạy xong
+- Heap để lưu những biến toàn cục có thời gian tồn tại hoặc là độ dài ko xác định và nó sẽ giải phóng bộ nhớ khi mình giải phỏng nó hoặc chương trình kết thúc
+### Continute Todolist Project
+- Tách các thư mục ra để dể quản lý
+- Dùng packet "github.com/joho/godotenv" để load .env
+```
+import (
+	"log"
+	"os"
+	"github.com/joho/godotenv"
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
+)
+func InitDB() *gorm.DB {
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Fatalf("Error loading .env file")
+	}
+	dsn := os.Getenv("DB_CONN_STR")
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	if err != nil {
+		log.Fatalln(err)
+	}
+	return db
+}
+```
