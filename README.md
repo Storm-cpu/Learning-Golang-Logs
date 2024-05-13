@@ -141,8 +141,8 @@ func main() {
 
 ## 13/05/2024
 ### Defer
+- Defer được sử dụng để hoãn việc thực thi một hàm cho đến khi hàm chứa nó kết thúc
 ```
-//Defer được sử dụng để hoãn việc thực thi một hàm cho đến khi hàm chứa nó kết thúc
 func printCountdown() {
     for i := 5; i > 0; i-- {
         defer fmt.Println(i)  // Các lệnh defer sẽ được thực thi theo thứ tự ngược lại (1,2,3,4,5)
@@ -151,15 +151,14 @@ func printCountdown() {
 }
 ```
 ### Silde
+- Slide nó giống như array nhưng có kích thước linh động hơn
 ```
-//Slide nó giống như array nhưng có kích thước linh động hơn
 func main() {
 	primes := [6]int{2, 3, 5, 7, 11, 13}
 
 	var s []int = primes[1:4]
 	fmt.Println(s)
 }
-// 
 ```
 ### Tham chiếu và tham trị
 - Tham trị (Pass by Value): Khi truyền một biến vào hàm theo kiểu tham trị, mình sẽ truyền giá trị của biến đó. Nếu giá trị được thay đổi bên trong hàm, nó không ảnh hưởng đến biến ban đầu.
