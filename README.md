@@ -192,28 +192,7 @@ func main() {
 ```
 ### Stack and Heap
 - Stack là bộ nhớ lưu các biến cục bộ hoặc là hàm và nó sẽ giải phóng khi hàm đó chạy xong
-- Heap để lưu những biến toàn cục có thời gian tồn tại hoặc là độ dài ko xác định và nó sẽ giải phóng bộ nhớ khi mình giải phỏng nó hoặc chương trình kết thúc
+- Heap để lưu những biến toàn cục có thời gian tồn tại hoặc là độ dài ko xác định và nó sẽ giải phóng bộ nhớ khi mình giải phóng nó hoặc chương trình kết thúc
 ### Continute Todolist Project
 - Tách các thư mục ra để dể quản lý
-- Dùng packet "github.com/joho/godotenv" để load .env
-```
-import (
-	"log"
-	"os"
-	"github.com/joho/godotenv"
-	"gorm.io/driver/mysql"
-	"gorm.io/gorm"
-)
-func InitDB() *gorm.DB {
-	err := godotenv.Load(".env")
-	if err != nil {
-		log.Fatalf("Error loading .env file")
-	}
-	dsn := os.Getenv("DB_CONN_STR")
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
-	if err != nil {
-		log.Fatalln(err)
-	}
-	return db
-}
-```
+- Dùng packet "github.com/joho/godotenv" để load .envW
