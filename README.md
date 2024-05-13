@@ -8,6 +8,7 @@ var a,b = 10,"Hello"
 a := 10
 ...
 ```
+
 ## 11/05/2024
 ### Data type
 ```
@@ -74,6 +75,7 @@ fmt.Println(p.Age)  // In ra "20"
 p.Age = 21
 fmt.Println(p.Age)  // In ra "21"
 ```
+
 ## 12/05/2024
 ### For Loop và Range
 ```
@@ -132,9 +134,10 @@ func main() {
     }()
     panic("something bad happened")
 }
-
 ```
 ### Starting Todo list project
 - Dùng Gin để tạo http server
 - Tải image mysql lên docker
 - Dùng GROM để kết nối mysql
+
+## 13/05/2024
