@@ -256,6 +256,7 @@ source .bashrc
 ```
 go version
 ```
+
 ## 14/05/2024
 ### Goroutine and Channel
 Goroutine:
@@ -318,3 +319,32 @@ default:
     fmt.Println("No message received or sent")
 }
 ```
+
+### Docker
+- Dowload docker trên WSL
+- Setup docker vô group có thể sử dụng mà không cần cần sudo
+```
+sudo usermod -aG docker $USER
+exec su -l $USER
+```
+- Build a Go image
+```
+#Dockerfile
+#Xây dựng dựa trên Docker image golang phiên bản mới nhất.
+FROM golang:latest
+# Đặt thư mục làm việc trong docker container
+WORKDIR /app
+# Sao chép các tệp go.mod và go.sum từ host vào /app 
+COPY go.mod go.sum ./
+# Tải về các module go cần thiết
+RUN go mod download
+# Sao chép tất cả file go vào /app
+COPY *.go ./
+# Biên dịch và tạo file thực thi có tên là /docker-gs-ping
+RUN CGO_ENABLED=0 GOOS=linux go build -o /docker-gs-ping
+# Docker container sẽ lắng nghe trên cổng 8080
+EXPOSE 8080
+# Đặt lệnh mặc định khi docker được chạy
+CMD ["/docker-gs-ping"]
+```
+- Run a Go image `docker run --publish 8080:8080 docker-gs-ping`
