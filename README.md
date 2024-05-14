@@ -247,4 +247,14 @@ source .bashrc
 ```
 go version
 ```
+## 14/05/2024
+### Goroutine and Channel
+Goroutine:
+- Goroutine là một luồng nhẹ trong Go, cho phép chúng ta thực hiện các tác vụ song song.
+- Mỗi goroutine chạy độc lập và song song với các goroutine khác.
+- Từ khóa go được sử dụng để khởi tạo một goroutine mới.
 
+Channel:
+- Channel là một cơ chế cho phép hai hoặc nhiều goroutine trao đổi dữ liệu và đồng bộ hóa việc thực thi chúng.
+- Dữ liệu được gửi vào channel bằng toán tử <-.
+- Dữ liệu được nhận từ channel cũng bằng toán tử <-.
