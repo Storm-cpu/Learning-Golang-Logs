@@ -262,13 +262,46 @@ Goroutine:
 - Goroutine là một luồng nhẹ trong Go, cho phép chúng ta thực hiện các tác vụ song song.
 - Mỗi goroutine chạy độc lập và song song với các goroutine khác.
 - Từ khóa `go` được sử dụng để khởi tạo một goroutine mới.
+```
+func say(s string) {
+	for i := 0; i < 5; i++ {
+		time.Sleep(100 * time.Millisecond)
+		fmt.Println(s)
+	}
+}
+
+func main() {
+	go say("world")
+	say("hello")
+}
+```
 
 Channel:
 - Channel là một cơ chế cho phép hai hoặc nhiều goroutine trao đổi dữ liệu và đồng bộ hóa việc thực thi chúng.
-- Dữ liệu được gửi vào channel bằng toán tử <-.
-- Dữ liệu được nhận từ channel cũng bằng toán tử <-.
+- Dữ liệu được gửi vào channel bằng toán tử `<-`.
+- Dữ liệu được nhận từ channel cũng bằng toán tử `<-`.
 - Khi tạo một channel không đệm (unbuffered channel) bằng cách sử dụng `make(chan Type)` nó có nghĩa là mỗi lần gửi (send) trên channel sẽ bị chặn cho đến khi có một lần nhận (receive) tương ứng.
 - Tạo một channel với dung lượng (capacity), có thể sử dụng `make(chan Type, capacity)`. Trong trường hợp này, các lần gửi vào channel sẽ không bị chặn cho đến khi channel đầy.
+```
+func sum(s []int, c chan int) {
+	sum := 0
+	for _, v := range s {
+		sum += v
+	}
+	c <- sum // send sum to c
+}
+
+func main() {
+	s := []int{7, 2, 8, -9, 4, 0}
+
+	c := make(chan int)
+	go sum(s[:len(s)/2], c)
+	go sum(s[len(s)/2:], c)
+	x, y := <-c, <-c // receive from c
+
+	fmt.Println(x, y, x+y)
+}
+```
 
 ### Select
 - Câu lệnh `select` trong Go cho phép chờ đồng thời nhiều hoạt động trên các channel. Nó giống như một câu lệnh `switch`, nhưng dành cho các hoạt động trên channel.
