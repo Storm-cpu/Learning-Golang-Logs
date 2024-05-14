@@ -238,6 +238,7 @@ sudo tar -C /usr/local -xzf go1.22.3.linux-amd64.tar.gz
 ```
 export PATH=$PATH:/usr/local/go/bin
 ```
+- Sau đó nhấn Esc để thoát trình edit và nhập `:wq` để đóng file
 - Cập nhật lại file .bashrc
 ```
 source .bashrc
