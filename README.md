@@ -46,6 +46,7 @@ var a rune = 'あ'
 fmt.Printf("%c\n", a) //'あ'
 fmt.Println(a) // In ra giá trị Unicode của'あ' (12354)
 ```
+
 ### Functions, multiple/named returns
 ```
 func swap(x, y int) (int, int) {
@@ -54,6 +55,7 @@ func swap(x, y int) (int, int) {
 a, b := swap(1, 2)
 fmt.Println(a, b) // In ra "2 1"
 ```
+
 ### Arrays, Slices, Maps
 ```
 arr := [3]int{1, 2, 3}
@@ -63,6 +65,7 @@ m := map[string]int{
     "two": 2,
 }
 ```
+
 ### Structs
 ```
 type Person struct {
@@ -91,6 +94,7 @@ for i, num := range nums {
     fmt.Printf("Index: %d, Value: %d\n", i, num)
 }
 ```
+
 ### If, Switch statements
 ```
 x := 10
@@ -110,6 +114,7 @@ default:
     fmt.Println("Today is another day")
 }
 ```
+
 ### Errors, Panic, Recover
 Errors: error được định nghĩa sẵn, mà bất kỳ kiểu nào triển khai phương thức Error() string đều được coi là một kiểu error
 ```
@@ -142,6 +147,7 @@ func main() {
     panic("something bad happened")
 }
 ```
+
 ### Starting Todo list project
 - Dùng Gin để tạo http server
 - Tải image mysql lên docker
@@ -168,6 +174,7 @@ func main() {
 	fmt.Println(s)
 }
 ```
+
 ### Tham chiếu và tham trị
 - Tham trị (Pass by Value): Khi truyền một biến vào hàm theo kiểu tham trị, mình sẽ truyền giá trị của biến đó. Nếu giá trị được thay đổi bên trong hàm, nó không ảnh hưởng đến biến ban đầu.
 - Tham chiếu (Pass by Reference): Khi truyền một biến vào hàm theo kiểu tham chiếu, mình sẽ truyền địa chỉ của biến đó. Do đó, bất cứ thay đổi nào xảy ra với biến bên trong hàm sẽ ảnh hưởng đến biến ban đầu.
@@ -198,33 +205,35 @@ func main() {
     fmt.Printf("Value a: %d, b: %d\n", a, b)
 }
 ```
+
 ### Stack and Heap
 - Stack là bộ nhớ lưu các biến cục bộ hoặc là hàm và nó sẽ giải phóng khi hàm đó chạy xong
 - Heap để lưu những biến toàn cục có thời gian tồn tại hoặc là độ dài ko xác định và nó sẽ giải phóng bộ nhớ khi mình giải phóng nó hoặc chương trình kết thúc
 - Việc giải phóng bộ nhớ cho heap được thực hiện tự động thông qua bộ thu gom rác (Garbage Collection)
+
 ### Continute Todolist Project
 - Tách các thư mục ra để dể quản lý
 - Dùng packet "github.com/joho/godotenv" để load .env
 - Hoàn tất CRUD
+
 ### Pointer
 - Tiết kiệm dữ liệu hơn về việc thao tác trên 1 biến
 - Hạn chế con trỏ: khó dùng và phải handle nil
+
 ### Concurrency and Parallelism
 Concurrency (Đồng thời):
-
 * Liên quan đến việc một ứng dụng xử lý nhiều tác vụ cùng một lúc.
 * Concurrency được thực hiện thông qua việc xen kẽ các hoạt động của các tiến trình trên CPU (Central Processing Unit) hoặc nói cách khác là thông qua việc chuyển đổi ngữ cảnh.
 
 Parallelism (Song song):
-
 * Parallelism liên quan đến việc một ứng dụng chia các tác vụ thành các tác vụ con nhỏ hơn được xử lý cùng một lúc hoặc song song.
 * Nó được sử dụng để tăng throughput và tốc độ tính toán của hệ thống bằng cách sử dụng nhiều bộ xử lý.
 
 So sánh:
-
 * Concurrency là giải quyết nhiều vấn đề cùng một lúc (không nhất thiết phải là đồng thời), còn Parallelism là giải quyết một vấn đề duy nhất nhanh hơn bằng cách chia nó thành các phần nhỏ hơn và giải quyết chúng đồng thời.
 * Concurrency thường chia nhỏ một tác vụ thành nhiều phần nhỏ hơn và xử lý chúng một cách xen kẻ độc lập. Trong khi đó, Parallelism thường liên quan đến việc chia nhỏ một tác vụ thành nhiều phần nhỏ hơn và xử lý chúng cùng một lúc.
 * Concurrency có thể được thực hiện trên một bộ xử lý duy nhất hoặc nhiều hơn. Trong khi đó, Parallelism yêu cầu nhiều bộ xử lý để thực hiện các tác vụ cùng một lúc.
+
 ### Download go by WSL
 - Dowload go mở terminal và nhập lệnh:
 ```
@@ -252,9 +261,27 @@ go version
 Goroutine:
 - Goroutine là một luồng nhẹ trong Go, cho phép chúng ta thực hiện các tác vụ song song.
 - Mỗi goroutine chạy độc lập và song song với các goroutine khác.
-- Từ khóa go được sử dụng để khởi tạo một goroutine mới.
+- Từ khóa `go` được sử dụng để khởi tạo một goroutine mới.
 
 Channel:
 - Channel là một cơ chế cho phép hai hoặc nhiều goroutine trao đổi dữ liệu và đồng bộ hóa việc thực thi chúng.
 - Dữ liệu được gửi vào channel bằng toán tử <-.
 - Dữ liệu được nhận từ channel cũng bằng toán tử <-.
+- Khi tạo một channel không đệm (unbuffered channel) bằng cách sử dụng `make(chan Type)` nó có nghĩa là mỗi lần gửi (send) trên channel sẽ bị chặn cho đến khi có một lần nhận (receive) tương ứng.
+- Tạo một channel với dung lượng (capacity), có thể sử dụng `make(chan Type, capacity)`. Trong trường hợp này, các lần gửi vào channel sẽ không bị chặn cho đến khi channel đầy.
+
+### Select
+- Câu lệnh `select` trong Go cho phép chờ đồng thời nhiều hoạt động trên các channel. Nó giống như một câu lệnh `switch`, nhưng dành cho các hoạt động trên channel.
+- `select` sẽ kiểm tra tất cả các `case` của nó để xem có `case` nào sẵn sàng thực thi hay không.
+- Nếu có nhiều hơn một `case` sẵn sàng thực thi, `select` sẽ chọn một cách ngẫu nhiên. Nếu chỉ có một `case` sẵn sàng, `select` sẽ chọn `case` đó. Nếu không có `case` nào sẵn sàng và không có `default`, `select` sẽ chặn cho đến khi có `case` sẵn sàng. Nếu có khối default, `select` sẽ thực thi khối `default`.
+- `select` sẽ thực hiện hoạt động trên channel tương ứng với `case` đã chọn (nhận hoặc gửi dữ liệu), sau đó thực thi khối mã trong `case` đó.
+```
+select {
+case msg := <-ch1:
+    fmt.Println("Received message from ch1:", msg)
+case ch2 <- "Hello":
+    fmt.Println("Sent message to ch2")
+default:
+    fmt.Println("No message received or sent")
+}
+```
