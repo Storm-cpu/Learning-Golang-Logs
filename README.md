@@ -348,3 +348,7 @@ EXPOSE 8080
 CMD ["/docker-gs-ping"]
 ```
 - Run a Go image `docker run --publish 8080:8080 docker-gs-ping`
+
+### Mutex and RWMutex
+- Mutex: giúp đảm bảo chỉ có một goroutine có thể truy cập vào dữ liệu được chia sẻ tại một thời điểm để tránh race conditions
+- RNMutex: nó là biến thể khác của mute. Nhiều goroutine có thể read dữ liệu mà không cần khóa nhau nhưng chỉ có 1 goroutine có thể ghi dữ liệu
