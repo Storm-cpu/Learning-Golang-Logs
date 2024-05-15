@@ -358,7 +358,13 @@ CMD ["/docker-gs-ping"]
 docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 ```
 ## 15/05/2024
-### Create two todo porject with gin anh echo
+### Create three todo porject with mux, gin anh echo
+## 16/05/2024
 ### Gin
-
+- Gin là một framework HTTP router và middleware nó làm đơn giản hóa việc phát triển web với Golang.
+- Hộ trợ quản lý lỗi, render JSON, XML, group các đường dẫn
+- Hiệu suất cao và API đơn giản
+- Hỗ trợ xây dựng module handle request có thể tái sử dụng
+- Rất phù hợp để xây dựng các API RESTful và microservices
+- Gin có bộ tính năng giới hạn so với các framework lớn hơn, yêu cầu thêm tùy chỉnh cho các yêu cầu phức tạp
 ### Echo
