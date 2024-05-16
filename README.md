@@ -361,29 +361,47 @@ docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d
 ### Create three todo porject with mux, gin anh echo
 ## 16/05/2024
 ### Gin
-- Gin là một framework HTTP router và middleware nó làm đơn giản hóa việc phát triển web với Golang. Nghĩa là thay vì viết ra nhiều thứ để quản lý các yêu cầu thì chỉ cần vài dòng đơn giản là có thể làm 
-- Hỗ trợ quản lý lỗi
+- Gin là một framework HTTP router và middleware nó làm đơn giản hóa việc phát triển web với Golang. 
+- Hỗ trợ các middleware ghi log, xử lý lỗi, xác thực
 - Binding JSON, XML, HTML
 - Group các đường dẫn
 - Hiệu suất cao do sử dụng thư viện httprouter để xử lý yêu cầu http
 - API đơn giản
 - Hỗ trợ xây dựng module handle request có thể tái sử dụng
-- Rất phù hợp để xây dựng các API RESTful và microservices
 - Gin có bộ tính năng giới hạn so với các framework lớn hơn
 - Không hỗ trợ ORM
+- Hỗ trợ HTTP/2, TSL
+
 ### Echo
 - Echo là một framework mạnh mẽ và linh hoạt
+- Hỗ trợ các middleware ghi log, xử lý lỗi, xác thực
 - Router được tối ưu hóa cao
 - Có khả năng mở rộng
 - Group các đường dẫn
-- Định tuyến linh hoạt và trực quan
-- Hỗ trợ các middleware ghi log, xử lý lỗi, xác thực
-- TSL tự động
-- Binding JSON, XML, form-data
-- Auto TSLs
+- Hỗ trợ xây dựng module handle request có thể tái sử dụng
+- Binding JSON, XML
 - Template engines
-- Hỗ trợ HTTP/2
+- Hỗ trợ HTTP/2, TSL
+- Tối ưu hóa framework khiến cho ứng dụng nhẹ hơn
+- Hỗ trợ Websocket
+
+### Compare Gin and Echo
+Router
+ - Cả 2 đếu được tối ưu hóa về hiệu xuất nhưng Gin thì tốt hơn một chút về mặt hiệu xuất, nhưng echo thì cung cấp được sự tùy chỉnh và linh hoạt. 
+
+Xử lý lỗi
+ - Trong gin có thẻ tạo một middleware có thể được đặt trước hoặc sau các handler trong chuỗi middleware để xử lý các lỗi và trả về phản hồi HTTP, nó cho phép lỗi nên được xử lý trước hay sau khi các handler khác được thực thi. Nếu một lỗi xảy ra thì có thể gọi ra một hàm AbortWithError để ngăn chặn các middleware tiếp theo thực thi.
+ - Trong echo, lỗi từ các handler hoặc middleware và được gom lại HTTPErrorHandler. Có nghĩa là thay vì xử lý lỗi ngay tại nơi nó xảy ra, minhd có thể trả lỗi về và để HTTPErrorHandler quyết định cách xử lý nó. Điều này giúp tập trung việc xử lý lỗi vào một nơi, giúp code dễ đọc và bảo dưỡng hơn.
+ - Gin xử lý lỗi ngay tại chỗ nó xảy ra, trong khi Echo trả lỗi về và xử lý tập trung.
+
+Khả năng mở rộng
+- Echo được cho là tốt hơn vì nó có khả năng tùy chỉnh, cấu hình và mở rộng cao. Gin không tập trung nhiều vào việc hỗ trợ đa dạng các loại file như Echo. Echo hỗ trợ xử lý đa dạng các file và engine template.
+
+Bảo mật
+- Gin và Echo đều được hỗ trợ xử lý lỗi và phục hồi từ Panic để tránh crash ứng dụng, hỗ trợ TSL và HTTP/2
+
 ### Microservices
 Microservices là một kiến trúc ứng dụng mà ở đó, ứng dụng được chia thành nhiều dịch vụ nhỏ, mỗi dịch vụ hoạt động độc lập và thực hiện một nhiệm vụ cụ thể. Mỗi microservice có thể được phát triển, triển khai và mở rộng độc lập với nhau.
+
 ### ORM
 ORM, viết tắt của Object-Relational Mapping, là một kỹ thuật lập trình cho phép ánh xạ cơ sở dữ liệu đến các đối tượng thuộc ngôn ngữ lập trình hướng đối tượng.
