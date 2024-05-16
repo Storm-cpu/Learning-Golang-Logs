@@ -361,10 +361,15 @@ docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d
 ### Create three todo porject with mux, gin anh echo
 ## 16/05/2024
 ### Gin
-- Gin là một framework HTTP router và middleware nó làm đơn giản hóa việc phát triển web với Golang.
-- Hộ trợ quản lý lỗi, render JSON, XML, group các đường dẫn
-- Hiệu suất cao và API đơn giản
+- Gin là một framework HTTP router và middleware nó làm đơn giản hóa việc phát triển web với Golang. Nghĩa là thay vì viết ra nhiều thứ để quản lý các yêu cầu thì chỉ cần vài dòng đơn giản là có thể làm 
+- Hộ trợ quản lý lỗi, render JSON, XML, HTML group các đường dẫn
+- Hiệu suất cao do sử dụng thư viện httprouter để xử lý yêu cầu http
+- API đơn giản
 - Hỗ trợ xây dựng module handle request có thể tái sử dụng
 - Rất phù hợp để xây dựng các API RESTful và microservices
-- Gin có bộ tính năng giới hạn so với các framework lớn hơn, yêu cầu thêm tùy chỉnh cho các yêu cầu phức tạp
-### Echo
+- Gin có bộ tính năng giới hạn so với các framework lớn hơn
+- Không hỗ trợ ORM
+### Microservices
+Microservices là một kiến trúc ứng dụng mà ở đó, ứng dụng được chia thành nhiều dịch vụ nhỏ, mỗi dịch vụ hoạt động độc lập và thực hiện một nhiệm vụ cụ thể. Mỗi microservice có thể được phát triển, triển khai và mở rộng độc lập với nhau.
+### ORM
+ORM, viết tắt của Object-Relational Mapping, là một kỹ thuật lập trình cho phép ánh xạ cơ sở dữ liệu đến các đối tượng thuộc ngôn ngữ lập trình hướng đối tượng.
