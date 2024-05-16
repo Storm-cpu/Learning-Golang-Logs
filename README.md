@@ -362,13 +362,27 @@ docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d
 ## 16/05/2024
 ### Gin
 - Gin là một framework HTTP router và middleware nó làm đơn giản hóa việc phát triển web với Golang. Nghĩa là thay vì viết ra nhiều thứ để quản lý các yêu cầu thì chỉ cần vài dòng đơn giản là có thể làm 
-- Hộ trợ quản lý lỗi, render JSON, XML, HTML group các đường dẫn
+- Hỗ trợ quản lý lỗi
+- Binding JSON, XML, HTML
+- Group các đường dẫn
 - Hiệu suất cao do sử dụng thư viện httprouter để xử lý yêu cầu http
 - API đơn giản
 - Hỗ trợ xây dựng module handle request có thể tái sử dụng
 - Rất phù hợp để xây dựng các API RESTful và microservices
 - Gin có bộ tính năng giới hạn so với các framework lớn hơn
 - Không hỗ trợ ORM
+### Echo
+- Echo là một framework mạnh mẽ và linh hoạt
+- Router được tối ưu hóa cao
+- Có khả năng mở rộng
+- Group các đường dẫn
+- Định tuyến linh hoạt và trực quan
+- Hỗ trợ các middleware ghi log, xử lý lỗi, xác thực
+- TSL tự động
+- Binding JSON, XML, form-data
+- Auto TSLs
+- Template engines
+- Hỗ trợ HTTP/2
 ### Microservices
 Microservices là một kiến trúc ứng dụng mà ở đó, ứng dụng được chia thành nhiều dịch vụ nhỏ, mỗi dịch vụ hoạt động độc lập và thực hiện một nhiệm vụ cụ thể. Mỗi microservice có thể được phát triển, triển khai và mở rộng độc lập với nhau.
 ### ORM
