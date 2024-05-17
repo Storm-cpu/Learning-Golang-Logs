@@ -422,5 +422,4 @@ Các loại token
 Token Formats
 - Opaque Tokens
 - JSON Web Tokens
-Lưu ý:
-- 
+
