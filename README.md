@@ -405,3 +405,22 @@ Microservices là một kiến trúc ứng dụng mà ở đó, ứng dụng đ�
 
 ### ORM
 ORM, viết tắt của Object-Relational Mapping, là một kỹ thuật lập trình cho phép ánh xạ cơ sở dữ liệu đến các đối tượng thuộc ngôn ngữ lập trình hướng đối tượng.
+
+## 16/05/2024
+### Tokens
+Các loại token
+- Access Tokens
+- Refesh Tokens
+- CRSF Tokens: là token được sử dụng để ngăn chặn các cuộc tấn công CSRF. Khi một form được tạo, một CSRF token cũng được tạo và lưu trữ trong session. Khi form được gửi, token này cũng được gửi theo và sau đó được kiểm tra với token trong session. Nếu hai token này khớp, thì yêu cầu được coi là hợp lệ.
+- Session Tokens
+- OAuth Tokens: là token được sử dụng trong quy trình xác thực OAuth. OAuth là một giao thức cho phép người dùng chia sẻ tài nguyên của họ mà không cần chia sẻ mật khẩu. Thay vào đó, họ cung cấp một OAuth Token cho ứng dụng, và ứng dụng này sử dụng token để truy cập vào tài nguyên thay cho người dùng.
+- Bearer Tokens
+- API Keys
+- Sender Constrained Tokens: là một loại token được thiết kế để giảm thiểu rủi ro khi token bị đánh cắp. Chỉ người gửi (sender) được ủy quyền mới có thể sử dụng token này, điều này được xác minh thông qua một cơ chế bảo mật như chứng chỉ TLS hoặc proof-of-possession(POP).
+- ID Tokens: là loại token được sử dụng trong OpenID Connect để trả về thông tin về người dùng
+
+Token Formats
+- Opaque Tokens
+- JSON Web Tokens
+Lưu ý:
+- 
