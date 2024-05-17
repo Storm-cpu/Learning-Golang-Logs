@@ -423,3 +423,10 @@ Token Formats
 - Opaque Tokens
 - JSON Web Tokens
 
+### Starting Social Blog project
+- Add models
+- Sửa lại hàm tạo JWT
+- Cấu hình hàm get JWT để tái sử dụng và Authorization
+- Tạo chức năng đăng nhập, authen
+- Authorization các chức năng quản lý user dành cho admin
+- Handle error record not found khi không tìm thấy dữ liệu trong database. Cụ thể trong phần kiểm tra email có tồn tại hay không. Nếu không thì sẽ tạo user mới
