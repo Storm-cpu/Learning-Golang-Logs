@@ -444,15 +444,58 @@ Benefit
 - Tích hợp nhiều dịch vụ và công nghệ
 - Có khả năng mở rộng
 
-Hạ tầng
+Regions
 - Có 25 regions
 - Mỗi regions có ít nhất 3 AZs (Availability Zones) riêng.
-- Mỗi AZ là một hoặc nhiều trung tâm dữ liệu
+- Mỗi AZ là một hoặc nhiều trung tâm dữ liệu. Nên triễn khai tài nguyên lên 2 AZs
 - Points of Presence (PoP) nó là một end point của AWS được dùng để lưu trữ nội dung tạm thời và hoạt động như CDN (Content Delivery Network)
 - PoP này chủ yếu chứa các dịch vụ như:
- - Amazon CloudFront, CDN (Content Delivery Network).
- - Amazon Route 53, DNS (Domain Name System).
- - AWS Global Accelerator (AGA).
+	- Amazon CloudFront, CDN (Content Delivery Netork).
+	- Amazon Route 53, DNS (Domain Name System).
+	- AWS Global Accelerator (AGA).
+
+Public and Private 
+- VPC dùng để tạo các môi trường riêng độc lập dưới dạng network
+- VPC có tính năng VPC end poin ví dụ: tạo end poin của DynamoDB hoặc S3 để kết nối vào VPC mà không cần đi ra ngoài
+- Khai báo một dãy địa chỉ ID khi tạo VPC. Phía dưới VPC sẽ có các subnet. Mỗi tier sẽ nằm trong một subnet. Mỗi subnet sẽ nằm trong một AZ
+- VPC có tính năng Route Table
+- Default Route Tables để truy cập local trong VPC
+- Để truy cập internet thì phải internet gateway, gán vào VPC và cấu hình route table 0.0.0.0/0 và đặt target là id của feature của internet gateway
+	- Sau đó gán custom route table vào một subnet trong VPC
+	- Cấp EC2 instance địa chỉ public ip address
+- Khi tạo ra mỗi subnet thì mất 5 địa chỉ IP
+	- 10.0.0.0: Network
+	- 10.0.0.1: Router
+	- 10.0.0.2: DNS
+	- 10.0.0.3: Research
+	- 10.0.0.255: Broadcast
+- Để Private instance ra ngoài internet
+	- Tạo public ip tĩnh
+  	- Tạo NAT gateway (ip pub với pri) và gán public ip vào 
+  	- Add Route entry vào id của NAT gateway (0.0.0.0/0)
+
+Security Group
+- Nó sẽ có tường lửa
+- Mặc định nó sẽ chặn các kết nối từ bên ngoài vào và cho phép truy cập từ trong ra ngoài
+- Bản chất của nó là bảo vệ card mạng. Có thể tạo ra nhiều SG lên một card mạng
+- Phải cấu hình inbound rule để có thể remote từ máy bàn đến server
+- Statefull firewall
+- Allow only
+- Tính năng reference other group
+	- Thay vì gõ ip vào inbound rule thì mình chỉ cần id của security group
+	- 
+Cost Management
+Cost Explorer
+Budgets
+Cost and Usage Report
+
+Cost Optimization
+- Rightsize your resourse 
+- Increase elasticity
+- Pick the right pricing model
+- Optimize storage
+- Meansure, monitor and improve
+
 
 ### CDN (Content Delivery Network) 
 
