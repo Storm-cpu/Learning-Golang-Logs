@@ -481,13 +481,24 @@ Security Group
 - Phải cấu hình inbound rule để có thể remote từ máy bàn đến server
 - Statefull firewall
 - Allow only
-- Tính năng reference other group
-	- Thay vì gõ ip vào inbound rule thì mình chỉ cần id của security group
-	- 
-Cost Management
-Cost Explorer
-Budgets
-Cost and Usage Report
+- Tính năng reference other group thay vì gõ ip vào inbound rule thì mình chỉ cần id của security group
+
+Network Access Control Lists (NACLs)
+- Nó là một tính năng tường lửa thứ 2
+- Mặc định không cấm gì
+- Scope của nó bao quang một subnet
+
+VPC Peering
+- Peering connection dùng để kết nối 2 VPC
+- Muốn kết nối 2 VPC thì cả 2 route table cúa 2 bên phải có ip base của cả 2 VPC và target đặt là id của peering connection
+- Peering connection là một cái relationship 1:1
+- 2 ip base của VPC phải khác nhau
+
+AWS Site-to-site VPN
+- Dùng để tạo kết nối an toàn giữa trung tâm dữ liệu hoặc văn phòng với các tài nguyên của AWS
+- Virtual Private Gateway: Virtual Private Gateway là end point VPN ở phía Amazon của kết nối VPN Site-to-Site của mình.
+- Customer Gateway: Một tài nguyên AWS cung cấp thông tin cho AWS về thiết bị cổng mạng của khách hàng.
+- IPSec Tunnel là một liên kết mã hóa nơi để truyền dữ liệu giữa client và AWS
 
 Cost Optimization
 - Rightsize your resourse 
@@ -495,7 +506,6 @@ Cost Optimization
 - Pick the right pricing model
 - Optimize storage
 - Meansure, monitor and improve
-
 
 ### CDN (Content Delivery Network) 
 
