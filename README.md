@@ -406,7 +406,7 @@ Microservices là một kiến trúc ứng dụng mà ở đó, ứng dụng đ�
 ### ORM
 ORM, viết tắt của Object-Relational Mapping, là một kỹ thuật lập trình cho phép ánh xạ cơ sở dữ liệu đến các đối tượng thuộc ngôn ngữ lập trình hướng đối tượng.
 
-## 16/05/2024
+## 17/05/2024
 ### Tokens
 Các loại token
 - Access Tokens
@@ -430,3 +430,31 @@ Token Formats
 - Tạo chức năng đăng nhập, authen
 - Authorization các chức năng quản lý user dành cho admin
 - Handle error record not found khi không tìm thấy dữ liệu trong database. Cụ thể trong phần kiểm tra email có tồn tại hay không. Nếu không thì sẽ tạo user mới
+
+## 20/05/2024
+### AWS
+What is AWS?
+- AWS (Amazon Web Service) là một service điện toán đám mây của AWS. Có khả năng mở rộng cao và chi phí thấp.
+
+Benefit
+- Tiết kiệm chi phí
+- Linh hoạt
+- Khả năng bảo mật caocao
+- Hiệu suất cao
+- Tích hợp nhiều dịch vụ và công nghệ
+- Có khả năng mở rộng
+
+Hạ tầng
+- Có 25 regions
+- Mỗi regions có ít nhất 3 AZs (Availability Zones) riêng.
+- Mỗi AZ là một hoặc nhiều trung tâm dữ liệu
+- Points of Presence (PoP) nó là một end point của AWS được dùng để lưu trữ nội dung tạm thời và hoạt động như CDN (Content Delivery Network)
+- PoP này chủ yếu chứa các dịch vụ như:
+ - Amazon CloudFront, CDN (Content Delivery Network).
+ - Amazon Route 53, DNS (Domain Name System).
+ - AWS Global Accelerator (AGA).
+
+### CDN (Content Delivery Network) 
+
+
+### DNS (Domain Name System)
