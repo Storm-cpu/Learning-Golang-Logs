@@ -454,30 +454,31 @@ Regions
 	- Amazon Route 53, DNS (Domain Name System).
 	- AWS Global Accelerator (AGA).
 
-Public and Private 
+Public and Private network
 - VPC dùng để tạo các môi trường riêng độc lập dưới dạng network
-- VPC có tính năng VPC end poin ví dụ: tạo end poin của DynamoDB hoặc S3 để kết nối vào VPC mà không cần đi ra ngoài
-- Khai báo một dãy địa chỉ ID khi tạo VPC. Phía dưới VPC sẽ có các subnet. Mỗi tier sẽ nằm trong một subnet. Mỗi subnet sẽ nằm trong một AZ
+- VPC có tính năng VPC end poin ví dụ: tạo end poin của DynamoDB hoặc S3 để kết nối vào VPC mà không cần đi ra ngoài internet
+- Khai báo một dãy địa chỉ ip base khi tạo VPC. Phía dưới VPC sẽ có các subnet. Mỗi tier sẽ nằm trong một subnet. Mỗi subnet sẽ nằm trong một AZ
 - VPC có tính năng Route Table
 - Default Route Tables để truy cập local trong VPC
-- Để truy cập internet thì phải internet gateway, gán vào VPC và cấu hình route table 0.0.0.0/0 và đặt target là id của feature của internet gateway
+- Để truy cập internet thì phải có internet gateway, gán vào VPC và cấu hình route table 0.0.0.0/0 và đặt target là id của internet gateway
 	- Sau đó gán custom route table vào một subnet trong VPC
 	- Cấp EC2 instance địa chỉ public ip address
-- Khi tạo ra mỗi subnet thì mất 5 địa chỉ IP
-	- 10.0.0.0: Network
-	- 10.0.0.1: Router
-	- 10.0.0.2: DNS
-	- 10.0.0.3: Research
-	- 10.0.0.255: Broadcast
-- Để Private instance ra ngoài internet
+- Khi tạo ra mỗi subnet thì mất 5 địa chỉ IP:
+	- *.*.*.0: Network
+	- *.*.*.1: Router
+	- *.*.*.2: DNS
+	- *.*.*.3:
+	- *.*.*.255: Broadcast
+- Để Private instance truy cập ra ngoài internet
 	- Tạo public ip tĩnh
-  	- Tạo NAT gateway (ip pub với pri) và gán public ip vào 
+  	- Tạo NAT gateway (ip pub với pri) và gán public ip tĩnh vào 
   	- Add Route entry vào id của NAT gateway (0.0.0.0/0)
 
 Security Group
-- Nó sẽ có tường lửa
+- Nó như một tường lửa
 - Mặc định nó sẽ chặn các kết nối từ bên ngoài vào và cho phép truy cập từ trong ra ngoài
 - Bản chất của nó là bảo vệ card mạng. Có thể tạo ra nhiều SG lên một card mạng
+- Scope của nó bao quanh một EC2
 - Phải cấu hình inbound rule để có thể remote từ máy bàn đến server
 - Statefull firewall
 - Allow only
@@ -486,7 +487,7 @@ Security Group
 Network Access Control Lists (NACLs)
 - Nó là một tính năng tường lửa thứ 2
 - Mặc định không cấm gì
-- Scope của nó bao quang một subnet
+- Scope của nó bao quanh một subnet
 
 VPC Peering
 - Peering connection dùng để kết nối 2 VPC
@@ -506,6 +507,22 @@ Cost Optimization
 - Pick the right pricing model
 - Optimize storage
 - Meansure, monitor and improve
+
+Amazon Elastic Block Store (EBS)
+- Amazon EBS Volumes: Là các volume lưu trữ gắn vào các EC2 instance và có thể điều chỉnh để phù hợp với nhu cầu.
+- Amazon EBS Snapshots: Là các bản sao lưu của Amazon EBS volumes.
+- Volume Type Amazon EBS cung cấp nhiều loại volume giúp tối ưu hóa hiệu suất và lưu trữ, volume bao gồm SSD và HDD.
+- Sử dụng mã hóa Amazon EBS để mã hóa các volume EBS và các snapshots EBS.
+- EBS tách rời với server
+
+Amazon Elastic Compute Cloud (EC2)
+- EC2 Instances là một máy chủ có thể thuê vận hành qua internet
+- Có thể tùy chỉnh lưu trữ, CPU, RAM và hệ điều hành khi tạo một instance
+- Có nhiều loại instance có các cấu hình CPU, RAM, đồ họa,... khác nhau
+- Có 2 loại lưu trữ trong EC2 instance store (tạm thời) và Amazon EBS volumes (lâu dài)
+
+Amazon S3
+
 
 ### CDN (Content Delivery Network) 
 
