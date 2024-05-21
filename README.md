@@ -528,16 +528,16 @@ Benefit
 - Có khả năng mở rộng, bảo mật và hiệu suất cao
 
 Options for data transfer
-- AWS Direct Connect: Kết nối trực tiếp với AWS qua một kết nối private, giúp giảm bớt chi phí, tăng băng thông và cung cấp kết nối mạng ổn định hơn.
-- Amazon Kinesis Firehose: Dịch vụ chuyển dữ liệu tự động, giúp dễ tải dữ liệu vào kho dữ liệu, hồ sơ và công cụ phân tích.
-- Amazon Kinesis Data Streams: Dịch vụ thu thập và xử lý dữ liệu phát trực tiếp, cho phép xử lý dữ liệu theo thời gian thực.
-- Amazon Kinesis Video Streams: Dịch vụ thu thập, xử lý và phân tích video phát trực tiếp.
-- Amazon S3 Transfer Acceleration: Tăng tốc độ chuyển dữ liệu từ và đến S3 bằng cách sử dụng mạng nội bộ tối ưu hóa của Amazon.
-- AWS Storage Gateway: Dịch vụ kết nối tại chỗ (on-premises) với đám mây AWS, giúp dễ dàng mở rộng dung lượng lưu trữ và tạo bản sao lưu.
-- AWS Snowball: Dịch vụ chuyển dữ liệu lớn, giúp di chuyển hàng terabyte hoặc petabyte dữ liệu vào và ra khỏi AWS.
-- AWS Snowball Edge: Cung cấp khả năng tính toán và lưu trữ tại chỗ, giúp di chuyển dữ liệu lớn và chạy ứng dụng tại chỗ.
-- AWS Snowmobile: Dịch vụ chuyển dữ liệu lớn, giúp di chuyển hàng exabyte dữ liệu vào AWS trong thời gian ít nhất.
-- AWS DataSync: Dịch vụ chuyển dữ liệu tự động và trực tuyến, giúp di chuyển dữ liệu lớn vào và ra khỏi AWS nhanh chóng, dễ dàng và an toàn.
+- AWS Direct Connect
+- Amazon Kinesis Firehose
+- Amazon Kinesis Data Streams
+- Amazon Kinesis Video Streams
+- Amazon S3 Transfer Acceleration
+- AWS Storage Gateway
+- AWS Snowball
+- AWS Snowball Edge
+- AWS Snowmobile
+- AWS DataSync
 - AWS Transfer for SFTP
 
 Cấu trúc
