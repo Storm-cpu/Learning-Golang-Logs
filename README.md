@@ -444,7 +444,7 @@ Benefit
 - Tích hợp nhiều dịch vụ và công nghệ
 - Có khả năng mở rộng
 
-Regions
+### Regions
 - Có 25 regions
 - Mỗi regions có ít nhất 3 AZs (Availability Zones) riêng.
 - Mỗi AZ là một hoặc nhiều trung tâm dữ liệu. Nên triễn khai tài nguyên lên 2 AZs
@@ -454,7 +454,7 @@ Regions
 	- Amazon Route 53, DNS (Domain Name System).
 	- AWS Global Accelerator (AGA).
 
-Public and Private network
+### Public and Private network
 - VPC dùng để tạo các môi trường riêng độc lập dưới dạng network
 - VPC có tính năng VPC end poin ví dụ: tạo end poin của DynamoDB hoặc S3 để kết nối vào VPC mà không cần đi ra ngoài internet
 - Khai báo một dãy địa chỉ ip base khi tạo VPC. Phía dưới VPC sẽ có các subnet. Mỗi tier sẽ nằm trong một subnet. Mỗi subnet sẽ nằm trong một AZ
@@ -474,7 +474,7 @@ Public and Private network
   	- Tạo NAT gateway (ip pub với pri) và gán public ip tĩnh vào 
   	- Add Route entry vào id của NAT gateway (0.0.0.0/0)
 
-Security Group
+### Security Group
 - Nó như một tường lửa
 - Mặc định nó sẽ chặn các kết nối từ bên ngoài vào và cho phép truy cập từ trong ra ngoài
 - Bản chất của nó là bảo vệ card mạng. Có thể tạo ra nhiều SG lên một card mạng
@@ -484,45 +484,68 @@ Security Group
 - Allow only
 - Tính năng reference other group thay vì gõ ip vào inbound rule thì mình chỉ cần id của security group
 
-Network Access Control Lists (NACLs)
+### Network Access Control Lists (NACLs)
 - Nó là một tính năng tường lửa thứ 2
 - Mặc định không cấm gì
 - Scope của nó bao quanh một subnet
 
-VPC Peering
+### VPC Peering
 - Peering connection dùng để kết nối 2 VPC
 - Muốn kết nối 2 VPC thì cả 2 route table cúa 2 bên phải có ip base của cả 2 VPC và target đặt là id của peering connection
 - Peering connection là một cái relationship 1:1
 - 2 ip base của VPC phải khác nhau
 
-AWS Site-to-site VPN
+### AWS Site-to-site VPN
 - Dùng để tạo kết nối an toàn giữa trung tâm dữ liệu hoặc văn phòng với các tài nguyên của AWS
 - Virtual Private Gateway: Virtual Private Gateway là end point VPN ở phía Amazon của kết nối VPN Site-to-Site của mình.
 - Customer Gateway: Một tài nguyên AWS cung cấp thông tin cho AWS về thiết bị cổng mạng của khách hàng.
 - IPSec Tunnel là một liên kết mã hóa nơi để truyền dữ liệu giữa client và AWS
 
-Cost Optimization
+### Cost Optimization
 - Rightsize your resourse 
 - Increase elasticity
 - Pick the right pricing model
 - Optimize storage
 - Meansure, monitor and improve
 
-Amazon Elastic Block Store (EBS)
+### Amazon Elastic Block Store (EBS)
 - Amazon EBS Volumes: Là các volume lưu trữ gắn vào các EC2 instance và có thể điều chỉnh để phù hợp với nhu cầu.
 - Amazon EBS Snapshots: Là các bản sao lưu của Amazon EBS volumes.
 - Volume Type Amazon EBS cung cấp nhiều loại volume giúp tối ưu hóa hiệu suất và lưu trữ, volume bao gồm SSD và HDD.
 - Sử dụng mã hóa Amazon EBS để mã hóa các volume EBS và các snapshots EBS.
 - EBS tách rời với server
 
-Amazon Elastic Compute Cloud (EC2)
+### Amazon Elastic Compute Cloud (EC2)
 - EC2 Instances là một máy chủ có thể thuê vận hành qua internet
 - Có thể tùy chỉnh lưu trữ, CPU, RAM và hệ điều hành khi tạo một instance
 - Có nhiều loại instance có các cấu hình CPU, RAM, đồ họa,... khác nhau
 - Có 2 loại lưu trữ trong EC2 instance store (tạm thời) và Amazon EBS volumes (lâu dài)
 
-Amazon S3
+## 20/05/2024
+### AWS
+### Amazon S3
+- Là một dịch vụ lưu trữ đối tượng
+- Có khả năng mở rộng, bảo mật và hiệu suất cao
 
+Options for data transfer
+- AWS Direct Connect: Kết nối trực tiếp với AWS qua một kết nối private, giúp giảm bớt chi phí, tăng băng thông và cung cấp kết nối mạng ổn định hơn.
+- Amazon Kinesis Firehose: Dịch vụ chuyển dữ liệu tự động, giúp dễ tải dữ liệu vào kho dữ liệu, hồ sơ và công cụ phân tích.
+- Amazon Kinesis Data Streams: Dịch vụ thu thập và xử lý dữ liệu phát trực tiếp, cho phép xử lý dữ liệu theo thời gian thực.
+- Amazon Kinesis Video Streams: Dịch vụ thu thập, xử lý và phân tích video phát trực tiếp.
+- Amazon S3 Transfer Acceleration: Tăng tốc độ chuyển dữ liệu từ và đến S3 bằng cách sử dụng mạng nội bộ tối ưu hóa của Amazon.
+- AWS Storage Gateway: Dịch vụ kết nối tại chỗ (on-premises) với đám mây AWS, giúp dễ dàng mở rộng dung lượng lưu trữ và tạo bản sao lưu.
+- AWS Snowball: Dịch vụ chuyển dữ liệu lớn, giúp di chuyển hàng terabyte hoặc petabyte dữ liệu vào và ra khỏi AWS.
+- AWS Snowball Edge: Cung cấp khả năng tính toán và lưu trữ tại chỗ, giúp di chuyển dữ liệu lớn và chạy ứng dụng tại chỗ.
+- AWS Snowmobile: Dịch vụ chuyển dữ liệu lớn, giúp di chuyển hàng exabyte dữ liệu vào AWS trong thời gian ít nhất.
+- AWS DataSync: Dịch vụ chuyển dữ liệu tự động và trực tuyến, giúp di chuyển dữ liệu lớn vào và ra khỏi AWS nhanh chóng, dễ dàng và an toàn.
+- AWS Transfer for SFTP
+
+Cấu trúc
+- Bucket là root level của các thư mục được tạo ra trong S3. Mỗi bucket tương ứng với một đơn vị lưu trữ logical trên S3.
+- Các thư mục con nằm trong một bucket gọi là Folder.
+- OObjects là các files được upload và lưu trữ dưới dạng các object. Mỗi object bao gồm dữ liệu, khóa và siêu dữ liệu (metadata).
+- Keys là unique name được gán cho mỗi object trong bucket.
+- Regions là vị trí địa lý của data center nơi mà dữ liệu được lưu trữ
 
 ### CDN (Content Delivery Network) 
 
