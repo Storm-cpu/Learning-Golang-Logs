@@ -520,6 +520,7 @@ Benefit
 - Có thể tùy chỉnh lưu trữ, CPU, RAM và hệ điều hành khi tạo một instance
 - Có nhiều loại instance có các cấu hình CPU, RAM, đồ họa,... khác nhau
 - Có 2 loại lưu trữ trong EC2 instance store (tạm thời) và Amazon EBS volumes (lâu dài)
+- Hỗ trợ 3 dòng hệ điều hành chính: Linux, Win, Mac
 
 ## 21/05/2024
 ### Amazon S3
