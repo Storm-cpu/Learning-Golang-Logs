@@ -521,8 +521,7 @@ Benefit
 - Có nhiều loại instance có các cấu hình CPU, RAM, đồ họa,... khác nhau
 - Có 2 loại lưu trữ trong EC2 instance store (tạm thời) và Amazon EBS volumes (lâu dài)
 
-## 20/05/2024
-### AWS
+## 21/05/2024
 ### Amazon S3
 - Là một dịch vụ lưu trữ đối tượng
 - Có khả năng mở rộng, bảo mật và hiệu suất cao
@@ -547,6 +546,53 @@ Cấu trúc
 - Keys là unique name được gán cho mỗi object trong bucket.
 - Regions là vị trí địa lý của data center nơi mà dữ liệu được lưu trữ
 
+S3 Block Public Access
+- Là một tính năng của S3 giúp ngăn chặn các truy cập public đến tài nguyên S3
+- Mặc định là S3 sẽ không cho truy cập tài nguyên từ bên ngoài nên cần phải cấu hình lại
+
+S3 Access Points
+- Là các Sub của Bucket
+- Là một tính năng quản lý quyền truy cập tài nguyên của S3
+
+S3 Storage Classes
+- Amazon S3 Standard (S3 Standard): Dành cho dữ liệu được truy cập thường xuyên.
+- Amazon S3 Intelligent-Tiering (S3 Intelligent-Tiering): Tự động di chuyển dữ liệu giữa các lớp dựa trên mẫu truy cập.
+- Amazon S3 Standard-Infrequent Access (S3 Standard-IA): Dành cho dữ liệu ít truy cập.
+- Amazon S3 One Zone-Infrequent Access (S3 One Zone-IA): Dữ liệu ít truy cập và được lưu trữ chỉ trong một Zone.
+- Amazon S3 Glacier (S3 Glacier): Dành cho lưu trữ dữ liệu lâu dài, hiếm khi truy cập mà không yêu cầu quyền truy cập tức thì.
+- Amazon S3 Glacier Deep Archive (S3 Glacier Deep Archive): Dành cho lưu trữ lâu dài và bảo quản kỹ thuật số với khả năng truy xuất trong vài giờ với chi phí lưu trữ thấp nhất trên đám mây
+
+### The Hybrid Cloud Model
+
+
+### AWS Storage Gateway
+- Là một dịch vụ kết nối một thiết bị phần mềm tại chỗ với lưu trữ đám mây để cung cấp tích hợp liền mạch và an toàn giữa môi trường IT tại chỗ của mình và cơ sở hạ tầng lưu trữ AWS trong đám mây
+- Deloyment Options: VMware, Hyper-V, KVM, Amazon EC2, Hardware appliance,...
+- Hỗ trợ bốn loại cổng: Tape, S3 File, FSx File, và Volume
+- Các loại công chính:
+	- Amazon S3 File Gateway: Cung cấp truy cập dựa trên Server Message Block (SMB) hoặc Network File System (NFS) đến dữ liệu trong Amazon S3.
+	- Tape Gateway: Cung cấp các băng từ ảo cho các ứng dụng sao lưu hàng đầu mà có thể lưu trữ trong Amazon S3 hoặc Amazon S3 Glacier.
+	- Volume Gateway: Cung cấp các tập lưu trữ block iSCSI cho các ứng dụng tại chỗ của mình mà mình có thể lưu trữ trong Amazon S3 hoặc di chuyển đến Amazon EBS.
+
+File Gateway
+- Tạo folder và share cho server của mình ở môi trường của mình (on-premises) thông qua NSF/SMB protocol
+- Sau đó các dữ liệu trong folder đó sẽ được sync lên tới endpoint của Storage Gateway của AWS rồi sau đó nó sẽ được chuyển vào S3
+- Trong S3 có thể cấu hình lifecycle để chuyển sang class lưu trữ thấp hơn
+- Công dụng: Backup dữ liệu lên cloud
+
+Volume Gateway
+- Tạo ra một volume ảo và share thông qua iSCSI protocol
+- Khi dữ liệu volume đó sẽ được sync lên tới endpoint của Storage Gateway của AWS rồi sau đó nó sẽ được chuyển vào S3
+- Sau đó nó có thể được chuyển thành Amazon EBS
+- Công dụng: Backup, Disaster Recovery, Migration (Lưu ý nó chỉ là một dịch vụ hỗ trợ DR)
+
+Tape Gateway
+- Tạo một Tape Lib ảo và share lên backup server thôg qua iSCSI VTL protocol
+- Tape Lib sẽ được sync lên tới endpoint của Storage Gateway của AWS rồi sau đó nó sẽ được vào S3
+- Sau đó Tape Lib có thể được eject vào ngược lại Tape Archive  
+
+ 
+   
 ### CDN (Content Delivery Network) 
 
 
