@@ -620,3 +620,19 @@ VIEWER:
   + ALL USERS
   + ALL BLOGS
 ```
+
+### Docker
+
+Docker Engine
+- Là phần core của Docker, dùng để tạo, vận chuyển và chạy Docker Container
+- Cung cấp kiến trúc ứng dụng client-server
+
+Docker Images
+- Docker Images như là source code cho Docker Containers
+- Được sử dụng để xây dựng các Docker Containers
+- Có thể tạo ra Docker Images của riêng mình hoặc sử dụng các Docker Images hiện có
+
+Docker Containers
+- Docker Containers là các instance của Docker Images.
+- Docker Container chứa tất cả các thành phần của phần mềm để chạy một ứng dụng.
+Docker Registry: Docker Registry là nơi Docker Images được lưu trữ1. Docker Hub là một Docker Registry công khai mà bạn có thể sử dụng. Bạn cũng có thể tạo Docker Registry riêng của mình1.
