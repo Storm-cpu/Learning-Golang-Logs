@@ -563,9 +563,6 @@ S3 Storage Classes
 - Amazon S3 Glacier (S3 Glacier): Dành cho lưu trữ dữ liệu lâu dài, hiếm khi truy cập mà không yêu cầu quyền truy cập tức thì.
 - Amazon S3 Glacier Deep Archive (S3 Glacier Deep Archive): Dành cho lưu trữ lâu dài và bảo quản kỹ thuật số với khả năng truy xuất trong vài giờ với chi phí lưu trữ thấp nhất trên đám mây
 
-### The Hybrid Cloud Model
-
-
 ### AWS Storage Gateway
 - Là một dịch vụ kết nối một thiết bị phần mềm tại chỗ với lưu trữ đám mây để cung cấp tích hợp liền mạch và an toàn giữa môi trường IT tại chỗ của mình và cơ sở hạ tầng lưu trữ AWS trong đám mây
 - Deloyment Options: VMware, Hyper-V, KVM, Amazon EC2, Hardware appliance,...
@@ -592,9 +589,34 @@ Tape Gateway
 - Tape Lib sẽ được sync lên tới endpoint của Storage Gateway của AWS rồi sau đó nó sẽ được vào S3
 - Sau đó Tape Lib có thể được eject vào ngược lại Tape Archive  
 
- 
-   
-### CDN (Content Delivery Network) 
-
-
-### DNS (Domain Name System)
+## 22/05 - 28/05/2024
+### Social Blog Project
+- Dùng thư viện GORM để thao tác với db
+- Dùng thư viện Echo để xây dựng ứng dụng web
+- Cơ sở dữ liệu dùng Postgres
+- Migration data
+- Login, Register, CRUD User và Blog
+- Sử dụng JWT
+- Config Logger
+- Forgot Password bằng cách gữi mail và xác thực bằng token
+- Sử dụng dockerfile và docker-compose
+- Thực hiện phân quyền theo mô hình RBAC
+```
+Roles:
+- ADMIN
+- USER
+- VIEWER
+Permissions:
+- ADMIN và USER: CRUD (Create, Read, Update, Delete)
+- VIEWER: R (Read)
+Scopes:
+- ADMIN:
+  + ALL USERS
+  + ALL BLOGS
+- USER:
+  + OWNED USER
+  + OWNED BLOGS
+VIEWER:
+  + ALL USERS
+  + ALL BLOGS
+```
