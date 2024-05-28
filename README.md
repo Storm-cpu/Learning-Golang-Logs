@@ -605,7 +605,7 @@ Tape Gateway
 Roles:
 - ADMIN
 - USER
-- VIEWER
+- VIEWERW
 Permissions:
 - ADMIN và USER: CRUD (Create, Read, Update, Delete)
 - VIEWER: R (Read)
@@ -635,4 +635,3 @@ Docker Images
 Docker Containers
 - Docker Containers là các instance của Docker Images.
 - Docker Container chứa tất cả các thành phần của phần mềm để chạy một ứng dụng.
-Docker Registry: Docker Registry là nơi Docker Images được lưu trữ1. Docker Hub là một Docker Registry công khai mà bạn có thể sử dụng. Bạn cũng có thể tạo Docker Registry riêng của mình1.
