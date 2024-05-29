@@ -604,19 +604,20 @@ Tape Gateway
 ```
 Roles:
 - ADMIN
+- AUTHOR
 - USER
-- VIEWERW
 Permissions:
-- ADMIN và USER: CRUD (Create, Read, Update, Delete)
-- VIEWER: R (Read)
+- ADMIN: CRUD (Create, Read, Update, Delete)
+- AUTHOR: RUD (Read, Update, Delete)
+- USER: CR (Create, Read)
 Scopes:
 - ADMIN:
   + ALL USERS
   + ALL BLOGS
-- USER:
+- AUTHOR:
   + OWNED USER
   + OWNED BLOGS
-VIEWER:
+USER:
   + ALL USERS
   + ALL BLOGS
 ```
