@@ -636,3 +636,14 @@ Docker Images
 Docker Containers
 - Docker Containers là các instance của Docker Images.
 - Docker Container chứa tất cả các thành phần của phần mềm để chạy một ứng dụng.
+
+## 29/05/2024
+### Refesh token
+- Máy khách sử dụng tên người dùng và mật khẩu để xác thực.
+- Máy chủ tạo token JWT với thời gian hiệu lực ngắn hơn (ví dụ: 10 phút) và Refresh Token với thời gian hiệu lực dài hơn (ví dụ: 7 ngày).
+- Khi máy khách truy cập vào giao diện yêu cầu xác thực, nó sẽ mang Token theo.
+- Nếu Token chưa hết hạn, máy chủ sẽ trả về dữ liệu mà khách hàng cần sau khi xác thực.
+- Nếu xác thực thất bại khi truy cập vào giao diện yêu cầu xác thực bằng Token (ví dụ: trả về lỗi 401), khách hàng sử dụng Refresh Token để áp dụng cho Token mới từ giao diện làm mới.
+- Nếu Refresh Token chưa hết hạn, máy chủ sẽ cấp Token mới cho máy khách.
+- Máy khách sử dụng Token mới để truy cập vào giao diện yêu cầu xác thực.
+- Nếu Refesh token hết hạn thì phải đăng nhập lại để lấy Access tokem và Refesh token mới
