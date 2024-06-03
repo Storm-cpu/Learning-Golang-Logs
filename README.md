@@ -655,6 +655,7 @@ Login
 - Kiểm tra user đăng nhập chưa. Nếu rồi thì chuyển sang trang chủ thông qua việc kiểm tra token lưu ở cookie.
 - Kiểm tra bằng việc có refresh token thì sẽ kiểm tra refresh token còn hạn và còn phiên đăng nhập không bằng cách đối chiếu refresh token đó với refresh ở bên phía db. Nếu không thì sẽ xóa cookie đó và quay về trang login
 - Refresh token được lưu ở DB sẽ được mã hóa và có ngày khởi tạo
+- Validate data được truyền vào
 - Khi đăng nhập sẽ kiểm tra thông tin user. Nếu đúng thì sẽ tạo access token và refresh token sau đó refresh token sẽ được lưu trên table refresh_token với khóa ngoại là customer_id
 - Trước khi lưu refresh token lên db thì sẽ thực hiện kiểm tra user đó đã đăng nhập ở bao nhiêu nơi bằng cách kiểm tra số lượng refresh token của user đó. Nếu vượt quá số lượng (>3) thì sẽ xóa refresh token có ngày tạo cũ nhất sau đó lưu refresh token mới lên db
 - Sau các bước trên thì server sẽ trả về client 2 token là access và refresh token client sau đó sẽ lưu dưới dạng cookie. Access token sẽ có hạn dùng là 15p
