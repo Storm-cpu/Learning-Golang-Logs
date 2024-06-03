@@ -630,6 +630,7 @@ Docker Engine
 
 Docker Images
 - Docker Images như là source code cho Docker Containers
+- 
 - Được sử dụng để xây dựng các Docker Containers
 - Có thể tạo ra Docker Images của riêng mình hoặc sử dụng các Docker Images hiện có
 
@@ -647,3 +648,13 @@ Docker Containers
 - Nếu Refresh Token chưa hết hạn, máy chủ sẽ cấp Token mới cho máy khách.
 - Máy khách sử dụng Token mới để truy cập vào giao diện yêu cầu xác thực.
 - Nếu Refesh token hết hạn thì phải đăng nhập lại để lấy Access tokem và Refesh token mới
+
+## 31/05 - 03/06/2024
+### Continute Ecomerece Project
+Login
+- Kiểm tra user đăng nhập chưa. Nếu rồi thì chuyển sang trang chủ thông qua việc kiểm tra token lưu ở cookie.
+- Kiểm tra bằng việc có refresh token thì sẽ kiểm tra refresh token còn hạn và còn phiên đăng nhập không bằng cách đối chiếu refresh token đó với refresh ở bên phía db. Nếu không thì sẽ xóa cookie đó và quay về trang login
+- Refresh token được lưu ở DB sẽ được mã hóa và có ngày khởi tạo
+- Khi đăng nhập sẽ kiểm tra thông tin user. Nếu đúng thì sẽ tạo access token và refresh token sau đó refresh token sẽ được lưu trên table refresh_token với khóa ngoại là customer_id.
+- Trước khi lưu refresh token lên db thì sẽ thực hiện kiểm tra user đó đã đăng nhập ở bao nhiêu nơi bằng cách kiểm tra số lượng refresh token của user đó. Nếu vượt quá số lượng (>3) thì sẽ xóa refresh token có ngày tạo cũ nhất sau đó lưu refresh token mới lên db
+- Sau các bước trên thì server sẽ trả về client 2 token là access và refresh token client sau đó sẽ lưu dưới dạng cookie. Access token sẽ có hạn dùng là 15p
