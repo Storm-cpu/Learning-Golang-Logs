@@ -659,3 +659,11 @@ Login
 - Khi đăng nhập sẽ kiểm tra thông tin user. Nếu đúng thì sẽ tạo access token và refresh token sau đó refresh token sẽ được lưu trên table refresh_token với khóa ngoại là customer_id
 - Trước khi lưu refresh token lên db thì sẽ thực hiện kiểm tra user đó đã đăng nhập ở bao nhiêu nơi bằng cách kiểm tra số lượng refresh token của user đó. Nếu vượt quá số lượng (>3) thì sẽ xóa refresh token có ngày tạo cũ nhất sau đó lưu refresh token mới lên db
 - Sau các bước trên thì server sẽ trả về client 2 token là access và refresh token client sau đó sẽ lưu dưới dạng cookie. Access token sẽ có hạn dùng là 15p
+
+## 04/06/2024
+
+## 05/06/2024
+
+## 06/06/2024
+
+
