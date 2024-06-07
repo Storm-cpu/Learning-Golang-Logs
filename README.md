@@ -666,4 +666,6 @@ Login
 
 ## 06/06/2024
 
-
+## 07/06/2024
+ACID
+(Atomicity, Consistency, Isolation, Durability),
