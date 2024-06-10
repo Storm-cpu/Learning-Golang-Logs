@@ -683,7 +683,7 @@ type Plan struct {
 }
 ```
 Where
-- Hàm Where được dùng để thêm điều kiện vào plan hiện tại
+- Hàm Where được dùng để thêm điều kiện vào plan hiện tại với toán tử AND
 ```
 func (p *Plan) Where(cond interface{}, vars ...interface{}) *Plan {
 	//Dùng để chuyển đổi cond và vars thành một biểu thức điều kiện
@@ -717,6 +717,26 @@ filter := map[string]interface{}{"name": "John"}
 plan.Where(filter)
 
 // Plan hiện tại sẽ tìm kiếm những người có tên là 'John' và tuổi trên 18.
+```
+
+Or
+- Tương tự như Where nhưng thêm mới điều kiện với toán tử OR
+
+Not
+- Nó hoạt động tương tự như where nhưng mà nó đảo ngược toán tử điều kiện
+
+Build
+- Tạo câu lệnh sql và các biến tương ứng
+```
+// Thêm điều kiện "id != 1"
+p.Not("id", 1)
+
+// Xây dựng Plan
+p.Build()
+
+// In câu lệnh SQL và các biến
+fmt.Println(p.SQL()) // In ra: "NOT (id = ?)"
+fmt.Println(p.Vars()) // In ra: [1]
 ```
 
 
