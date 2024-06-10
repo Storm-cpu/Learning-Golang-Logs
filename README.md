@@ -668,4 +668,55 @@ Login
 
 ## 07/06/2024
 ACID
-(Atomicity, Consistency, Isolation, Durability),
+(Atomicity, Consistency, Isolation, Durability)
+
+## 10/06/2024
+### gowhere.Plan
+```
+type Plan struct {
+	Error error
+	conditions *andConditions
+	config     *Config
+	built      bool
+	sql        string
+	vars       []interface{}
+}
+```
+Where
+- Hàm Where được dùng để thêm điều kiện vào plan hiện tại
+```
+func (p *Plan) Where(cond interface{}, vars ...interface{}) *Plan {
+	//Dùng để chuyển đổi cond và vars thành một biểu thức điều kiện
+	condition, err := toCondition(cond, vars, false)
+	if err != nil {
+		if p.config.Strict {
+			p.Error = &InvalidCond{cond, vars}
+		}
+		return p
+	}
+	//Thêm điều kiện vào plan
+	p.conditions.value = append(p.conditions.value, condition)
+	//Đặt built thành false để mỗi khi built thì hàm built sẽ cập nhật lại điều kiện mới vừa được thêm vào
+	p.built = false
+
+	return p
+}
+```
+- Exp:
+```
+plan := &Plan{
+	conditions: &andConditions{value: []Condition{}},
+	config:     &Config{Strict: true},
+}
+
+// Thêm điều kiện "age > 18"
+plan = plan.Where("age > ?", 18)
+
+// Thêm điều kiện "name = 'John'"
+filter := map[string]interface{}{"name": "John"}
+plan.Where(filter)
+
+// Plan hiện tại sẽ tìm kiếm những người có tên là 'John' và tuổi trên 18.
+```
+
+
