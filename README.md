@@ -739,4 +739,16 @@ fmt.Println(p.SQL()) // In ra: "NOT (id = ?)"
 fmt.Println(p.Vars()) // In ra: [1]
 ```
 
+## 11/06/2024
 
+## 12/06/2024
+
+## 13/06/2024
+
+## 14/06/2024
+### Design Pattern
+1. Creational: Factory Method, Abstract Factory, Singleton, Builder, Prototype. Tập trung vào việc thực thể hoá các nhóm đối tượng (class instantiation).
+
+2. Structural:  Adapter, Bridge, Composite, Decorator, Facade, Flyweight và Proxy. Chủ yếu làm việc với cấu tạo của class và object. Nó được sử dụng để hình thành và định nghĩa quan hệ giữa các đối tượng.
+
+3. Behavioral: Interpreter, Template Method, Chain of Responsibility, Command, Iterator, Mediator, Memento, Observer, State, Strategy và Visitor. Tập trung chính vào sự giao tiếp giữa các object trong cùng 1 class.
